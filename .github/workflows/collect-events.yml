@@ -13,12 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
 
-      - name: Collect candidate events
-        run: python scripts/fetch_events.py
+      - name: Ensure data file exists
+        run: |
+          mkdir -p data
+          if [ ! -f data/events.json ]; then
+            echo "[]" > data/events.json
+          fi
 
       - name: Detect changes
         id: changes
@@ -35,5 +36,5 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore: update event candidates"
+          git commit -m "chore: ensure events data file"
           git push
