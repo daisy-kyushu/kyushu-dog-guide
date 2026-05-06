@@ -1,1 +1,16 @@
-[]
+{
+  "id": 999,
+  "title": "イベント名 or スポット名",
+  "category": "イベント",
+  "prefecture": "福岡",
+  "area": "福岡市",
+  "date": "2026/08/10",
+  "status": "要確認",
+  "summary": "犬連れで楽しめる内容を100文字以内で。",
+  "url": "https://example.com/official",
+  "sourceType": "candidate",
+  "affiliateUrl": "https://example-affiliate-link",
+  "seasons": ["春", "夏"],
+  "largeDogFriendly": true,
+  "mapUrl": "https://maps.google.com/?q=福岡市+スポット名",
+}
