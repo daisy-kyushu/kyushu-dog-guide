@@ -1,6 +1,16 @@
 async function loadItems() {
-  const res = await fetch('./データ/events.json', { cache: 'no-store' });
-  return res.json();
+  const paths = ['./data/events.json', './データ/events.json'];
+  let lastErr;
+  for (const p of paths) {
+    try {
+      const res = await fetch(p, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`HTTP ${res.status} for ${p}`);
+      return await res.json();
+    } catch (e) {
+      lastErr = e;
+    }
+  }
+  throw lastErr || new Error('events.json not found');
 }
 
 const esc = (s='') => String(s).replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
@@ -48,7 +58,8 @@ function renderApp(items) {
   renderFeatured(items);
 }
 
-loadItems().then(renderApp).catch(() => {
+loadItems().then(renderApp).catch((e) => {
+  console.error(e);
   document.getElementById('count').textContent = '読み込み失敗';
 });
 
