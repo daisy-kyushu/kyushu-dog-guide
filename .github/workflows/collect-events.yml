@@ -24,7 +24,7 @@ jobs:
       - name: Detect changes
         id: changes
         run: |
-          git add data/events.json
+          git add データ/events.json
           if git diff --cached --quiet; then
             echo "changed=false" >> $GITHUB_OUTPUT
           else
