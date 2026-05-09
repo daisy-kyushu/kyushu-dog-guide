@@ -5,8 +5,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA_FILE = ROOT / "data" / "events.json"
-INSTAGRAM_SOURCES_FILE = ROOT / "data" / "instagram-sources.json"
+DATA_FILE = ROOT / "データ" / "events.json"
+INSTAGRAM_SOURCES_FILE = ROOT / "データ" / "instagram-sources.json"
 
 CANDIDATES = [
     {
