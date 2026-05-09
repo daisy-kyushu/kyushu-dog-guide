@@ -1,5 +1,5 @@
 async function loadItems() {
-  const res = await fetch('./data/events.json', { cache: 'no-store' });
+  const res = await fetch('./データ/events.json', { cache: 'no-store' });
   return res.json();
 }
 
