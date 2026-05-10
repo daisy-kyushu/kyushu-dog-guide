@@ -14,6 +14,13 @@ const esc = (s = '') =>
   }[ch]));
 
 const safeUrl = (u = '') => /^https:\/\//.test(String(u)) ? String(u) : '';
+const safeImg = (u = '') => /^https:\/\//.test(String(u)) ? String(u) : '';
+
+function cardImage(i) {
+  const src = safeImg(i.imageUrl || '');
+  if (!src) return '';
+  return `<img class="card-img" src="${src}" alt="${esc(i.title)}" loading="lazy" referrerpolicy="no-referrer">`;
+}
 
 function renderFeatured(items) {
   const featured = document.getElementById('featured');
@@ -27,6 +34,7 @@ function renderFeatured(items) {
     <div class="quick-grid">
       ${picks.map(i => `
         <article class="card compact">
+          ${cardImage(i)}
           <p class="badge">${esc(i.category)}</p>
           <h4>${esc(i.title)}</h4>
           <p class="sub">${esc(i.prefecture)}・${esc(i.area)}</p>
@@ -43,7 +51,6 @@ function renderApp(items) {
     lastUpdatedEl.textContent = `最終更新: ${latest.replace('T', ' ').replace('Z', ' UTC')}`;
   }
 
-  // 公開は「公式確認済み」のみ
   const publicItems = items.filter(i => (i.status || '') === '公式確認済み');
 
   const prefs = ['すべて', ...new Set(publicItems.map(i => i.prefecture))];
@@ -81,6 +88,7 @@ function renderApp(items) {
 
     document.getElementById('list').innerHTML = filtered.map(i => `
       <article class="card">
+        ${cardImage(i)}
         <div class="badges">
           <span class="badge">${esc(i.status || '要確認')}</span>
           <span class="badge">${esc(i.category)}</span>
