@@ -51,6 +51,7 @@ function renderApp(items) {
     lastUpdatedEl.textContent = `最終更新: ${latest.replace('T', ' ').replace('Z', ' UTC')}`;
   }
 
+  // 公開は承認済みだけ
   const publicItems = items.filter(i => (i.status || '') === '公式確認済み');
 
   const prefs = ['すべて', ...new Set(publicItems.map(i => i.prefecture))];
