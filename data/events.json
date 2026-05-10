@@ -14,7 +14,12 @@
     "rakutenAffiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/EVENT-RKT-EXAMPLE",
     "amazonAffiliateUrl": "https://amzn.to/EVENT-AMZ-EXAMPLE",
     "imageUrl": "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=80",
-    "seasons": ["春", "夏", "秋", "冬"],
+    "seasons": [
+      "春",
+      "夏",
+      "秋",
+      "冬"
+    ],
     "largeDogFriendly": false,
     "mapUrl": "https://maps.google.com/?q=PayPayドーム福岡",
     "verifiedAt": "2026-05-10",
@@ -35,7 +40,10 @@
     "rakutenAffiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/EVENT-RKT-EXAMPLE",
     "amazonAffiliateUrl": "https://amzn.to/EVENT-AMZ-EXAMPLE",
     "imageUrl": "https://images.unsplash.com/photo-1525253086316-d0c936c814f8?auto=format&fit=crop&w=1200&q=80",
-    "seasons": ["春", "秋"],
+    "seasons": [
+      "春",
+      "秋"
+    ],
     "largeDogFriendly": false,
     "mapUrl": "https://maps.google.com/?q=門司港レトロ",
     "verifiedAt": "2026-05-10",
@@ -56,7 +64,12 @@
     "rakutenAffiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/EVENT-RKT-EXAMPLE",
     "amazonAffiliateUrl": "https://amzn.to/EVENT-AMZ-EXAMPLE",
     "imageUrl": "https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&w=1200&q=80",
-    "seasons": ["春", "夏", "秋", "冬"],
+    "seasons": [
+      "春",
+      "夏",
+      "秋",
+      "冬"
+    ],
     "largeDogFriendly": true,
     "mapUrl": "https://maps.google.com/?q=阿蘇",
     "verifiedAt": "2026-05-10",
@@ -77,7 +90,11 @@
     "rakutenAffiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/HIKE-RKT-EXAMPLE",
     "amazonAffiliateUrl": "https://amzn.to/HIKE-AMZ-EXAMPLE",
     "imageUrl": "https://images.unsplash.com/photo-1444212477490-ca407925329e?auto=format&fit=crop&w=1200&q=80",
-    "seasons": ["春", "夏", "秋"],
+    "seasons": [
+      "春",
+      "夏",
+      "秋"
+    ],
     "largeDogFriendly": true,
     "mapUrl": "https://maps.google.com/?q=牧ノ戸峠",
     "verifiedAt": "2026-05-10",
@@ -98,7 +115,10 @@
     "rakutenAffiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/CAFE-RKT-EXAMPLE",
     "amazonAffiliateUrl": "https://amzn.to/CAFE-AMZ-EXAMPLE",
     "imageUrl": "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80",
-    "seasons": ["春", "秋"],
+    "seasons": [
+      "春",
+      "秋"
+    ],
     "largeDogFriendly": false,
     "mapUrl": "https://maps.google.com/?q=由布院",
     "verifiedAt": "2026-05-10",
@@ -119,7 +139,11 @@
     "rakutenAffiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/CAMP-RKT-EXAMPLE",
     "amazonAffiliateUrl": "https://amzn.to/CAMP-AMZ-EXAMPLE",
     "imageUrl": "https://images.unsplash.com/photo-1504280390368-3971d1cf94f7?auto=format&fit=crop&w=1200&q=80",
-    "seasons": ["春", "夏", "秋"],
+    "seasons": [
+      "春",
+      "夏",
+      "秋"
+    ],
     "largeDogFriendly": true,
     "mapUrl": "https://maps.google.com/?q=阿蘇 キャンプ",
     "verifiedAt": "2026-05-10",
@@ -140,7 +164,10 @@
     "rakutenAffiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/HOTEL-RKT-EXAMPLE",
     "amazonAffiliateUrl": "https://amzn.to/HOTEL-AMZ-EXAMPLE",
     "imageUrl": "https://images.unsplash.com/photo-1563911302283-d2bc129e7570?auto=format&fit=crop&w=1200&q=80",
-    "seasons": ["秋", "冬"],
+    "seasons": [
+      "秋",
+      "冬"
+    ],
     "largeDogFriendly": false,
     "mapUrl": "https://maps.google.com/?q=黒川温泉",
     "verifiedAt": "2026-05-10",
@@ -161,7 +188,12 @@
     "rakutenAffiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/CAFE-RKT-EXAMPLE",
     "amazonAffiliateUrl": "https://amzn.to/CAFE-AMZ-EXAMPLE",
     "imageUrl": "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=1200&q=80",
-    "seasons": ["春", "夏", "秋", "冬"],
+    "seasons": [
+      "春",
+      "夏",
+      "秋",
+      "冬"
+    ],
     "largeDogFriendly": false,
     "mapUrl": "https://maps.google.com/?q=糸島 カフェ",
     "verifiedAt": "",
@@ -182,7 +214,9 @@
     "rakutenAffiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/HIKE-RKT-EXAMPLE",
     "amazonAffiliateUrl": "https://amzn.to/HIKE-AMZ-EXAMPLE",
     "imageUrl": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
-    "seasons": ["秋"],
+    "seasons": [
+      "秋"
+    ],
     "largeDogFriendly": true,
     "mapUrl": "https://maps.google.com/?q=えびの高原",
     "verifiedAt": "",
@@ -203,7 +237,12 @@
     "rakutenAffiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/HOTEL-RKT-EXAMPLE",
     "amazonAffiliateUrl": "https://amzn.to/HOTEL-AMZ-EXAMPLE",
     "imageUrl": "https://images.unsplash.com/photo-1455587734955-081b22074882?auto=format&fit=crop&w=1200&q=80",
-    "seasons": ["春", "夏", "秋", "冬"],
+    "seasons": [
+      "春",
+      "夏",
+      "秋",
+      "冬"
+    ],
     "largeDogFriendly": false,
     "mapUrl": "https://maps.google.com/?q=青島 宮崎",
     "verifiedAt": "",
@@ -224,7 +263,12 @@
     "rakutenAffiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/HIKE-RKT-EXAMPLE",
     "amazonAffiliateUrl": "https://amzn.to/HIKE-AMZ-EXAMPLE",
     "imageUrl": "https://images.unsplash.com/photo-1516934024742-b461fba47600?auto=format&fit=crop&w=1200&q=80",
-    "seasons": ["春", "夏", "秋", "冬"],
+    "seasons": [
+      "春",
+      "夏",
+      "秋",
+      "冬"
+    ],
     "largeDogFriendly": true,
     "mapUrl": "https://maps.google.com/?q=長崎港",
     "verifiedAt": "",
@@ -245,10 +289,91 @@
     "rakutenAffiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/HIKE-RKT-EXAMPLE",
     "amazonAffiliateUrl": "https://amzn.to/HIKE-AMZ-EXAMPLE",
     "imageUrl": "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1200&q=80",
-    "seasons": ["春", "秋"],
+    "seasons": [
+      "春",
+      "秋"
+    ],
     "largeDogFriendly": true,
     "mapUrl": "https://maps.google.com/?q=吉野ヶ里歴史公園",
     "verifiedAt": "",
     "updatedAt": "2026-05-10T10:00:00Z"
+  },
+  {
+    "id": 13,
+    "verifiedAt": "",
+    "updatedAt": "2026-05-10T23:37:31Z",
+    "title": "ハッシュタグ候補: #九州犬イベント",
+    "category": "イベント",
+    "prefecture": "福岡",
+    "area": "要確認",
+    "date": "要確認",
+    "status": "要確認",
+    "summary": "Instagramハッシュタグ #九州犬イベント 由来の候補。公開前に確認してください。",
+    "url": "https://www.instagram.com/explore/tags/九州犬イベント/",
+    "sourceType": "candidate",
+    "source": "instagram-hashtag",
+    "rakutenAffiliateUrl": "",
+    "amazonAffiliateUrl": "",
+    "imageUrl": "",
+    "seasons": [
+      "春",
+      "夏",
+      "秋",
+      "冬"
+    ],
+    "largeDogFriendly": false,
+    "mapUrl": ""
+  },
+  {
+    "id": 14,
+    "verifiedAt": "",
+    "updatedAt": "2026-05-10T23:37:31Z",
+    "title": "ハッシュタグ候補: #九州ドッグラン",
+    "category": "ドッグラン",
+    "prefecture": "熊本",
+    "area": "要確認",
+    "date": "要確認",
+    "status": "要確認",
+    "summary": "Instagramハッシュタグ #九州ドッグラン 由来の候補。公開前に確認してください。",
+    "url": "https://www.instagram.com/explore/tags/九州ドッグラン/",
+    "sourceType": "candidate",
+    "source": "instagram-hashtag",
+    "rakutenAffiliateUrl": "",
+    "amazonAffiliateUrl": "",
+    "imageUrl": "",
+    "seasons": [
+      "春",
+      "夏",
+      "秋",
+      "冬"
+    ],
+    "largeDogFriendly": false,
+    "mapUrl": ""
+  },
+  {
+    "id": 15,
+    "verifiedAt": "",
+    "updatedAt": "2026-05-10T23:37:31Z",
+    "title": "ハッシュタグ候補: #九州犬カフェ",
+    "category": "カフェ",
+    "prefecture": "大分",
+    "area": "要確認",
+    "date": "要確認",
+    "status": "要確認",
+    "summary": "Instagramハッシュタグ #九州犬カフェ 由来の候補。公開前に確認してください。",
+    "url": "https://www.instagram.com/explore/tags/九州犬カフェ/",
+    "sourceType": "candidate",
+    "source": "instagram-hashtag",
+    "rakutenAffiliateUrl": "",
+    "amazonAffiliateUrl": "",
+    "imageUrl": "",
+    "seasons": [
+      "春",
+      "夏",
+      "秋",
+      "冬"
+    ],
+    "largeDogFriendly": false,
+    "mapUrl": ""
   }
 ]
