@@ -5,8 +5,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA_FILE = ROOT / "データ" / "events.json"
-INSTAGRAM_SOURCES_FILE = ROOT / "データ" / "instagram-sources.json"
+DATA_FILE = ROOT / "data" / "events.json"
+INSTAGRAM_SOURCES_FILE = ROOT / "data" / "instagram-sources.json"
+
 
 CANDIDATES = [
     {
@@ -19,13 +20,20 @@ CANDIDATES = [
         "url": "",
         "sourceType": "candidate",
         "source": "web+instagram",
+        "rakutenAffiliateUrl": "",
+        "amazonAffiliateUrl": "",
+        "seasons": ["春", "夏", "秋", "冬"],
+        "largeDogFriendly": False,
+        "mapUrl": ""
     }
 ]
+
 
 def load_instagram_sources():
     if not INSTAGRAM_SOURCES_FILE.exists():
         return {"policy": {}, "accounts": []}
     return json.loads(INSTAGRAM_SOURCES_FILE.read_text(encoding="utf-8"))
+
 
 def sources_to_candidates():
     sources = load_instagram_sources()
@@ -50,22 +58,31 @@ def sources_to_candidates():
             "prefecture": "要確認",
             "area": "要確認",
             "date": "要確認",
-            "summary": "Instagram公式アカウント由来の候補。公開前に内容確認が必要。",
+            "status": "要確認",
+            "summary": "Instagram公式アカウント由来の候補。公開前にスマホで確認してください。",
             "url": f"https://www.instagram.com/{handle}/" if handle else "",
             "sourceType": "candidate",
             "source": "instagram-official",
+            "rakutenAffiliateUrl": acc.get("affiliate", {}).get("rakuten", ""),
+            "amazonAffiliateUrl": acc.get("affiliate", {}).get("amazon", ""),
+            "seasons": acc.get("seasons", ["春", "夏", "秋", "冬"]),
+            "largeDogFriendly": bool(acc.get("largeDogFriendly", False)),
+            "mapUrl": acc.get("mapUrl", "")
         })
 
     return candidates
+
 
 def load_events():
     if not DATA_FILE.exists():
         return []
     return json.loads(DATA_FILE.read_text(encoding="utf-8"))
 
+
 def save_events(events):
     DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
     DATA_FILE.write_text(json.dumps(events, ensure_ascii=False, indent=2), encoding="utf-8")
+
 
 def upsert_candidates(events):
     existing_by_key = {(e.get("title"), e.get("date")): e for e in events}
@@ -83,6 +100,7 @@ def upsert_candidates(events):
         existing = existing_by_key.get(key) or (existing_by_url.get(c.get("url")) if c.get("url") else None)
 
         if existing:
+            # 未承認候補のみ自動更新。承認済みは人手編集を尊重。
             if existing.get("status") == "要確認":
                 existing.update({**c, "updatedAt": now_iso})
             continue
@@ -101,6 +119,7 @@ def upsert_candidates(events):
         next_id += 1
 
     return sorted(events, key=lambda x: x.get("id", 0))
+
 
 if __name__ == "__main__":
     events = load_events()
