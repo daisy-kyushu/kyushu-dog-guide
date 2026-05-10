@@ -8,7 +8,6 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = ROOT / "data" / "events.json"
 INSTAGRAM_SOURCES_FILE = ROOT / "data" / "instagram-sources.json"
 
-
 CANDIDATES = [
     {
         "title": "候補: 九州ドッグイベント",
@@ -24,16 +23,15 @@ CANDIDATES = [
         "amazonAffiliateUrl": "",
         "seasons": ["春", "夏", "秋", "冬"],
         "largeDogFriendly": False,
-        "mapUrl": ""
+        "mapUrl": "",
+        "imageUrl": ""
     }
 ]
-
 
 def load_instagram_sources():
     if not INSTAGRAM_SOURCES_FILE.exists():
         return {"policy": {}, "accounts": []}
     return json.loads(INSTAGRAM_SOURCES_FILE.read_text(encoding="utf-8"))
-
 
 def sources_to_candidates():
     sources = load_instagram_sources()
@@ -55,11 +53,11 @@ def sources_to_candidates():
         candidates.append({
             "title": f"Instagram候補: {str(acc.get('displayName', acc.get('handle', 'unknown'))).strip()}",
             "category": acc.get("category", "イベント"),
-            "prefecture": "要確認",
-            "area": "要確認",
-            "date": "要確認",
+            "prefecture": acc.get("prefecture", "要確認"),
+            "area": acc.get("area", "要確認"),
+            "date": acc.get("date", "要確認"),
             "status": "要確認",
-            "summary": "Instagram公式アカウント由来の候補。公開前にスマホで確認してください。",
+            "summary": acc.get("summary", "Instagram公式アカウント由来の候補。公開前にスマホで確認してください。"),
             "url": f"https://www.instagram.com/{handle}/" if handle else "",
             "sourceType": "candidate",
             "source": "instagram-official",
@@ -67,22 +65,20 @@ def sources_to_candidates():
             "amazonAffiliateUrl": acc.get("affiliate", {}).get("amazon", ""),
             "seasons": acc.get("seasons", ["春", "夏", "秋", "冬"]),
             "largeDogFriendly": bool(acc.get("largeDogFriendly", False)),
-            "mapUrl": acc.get("mapUrl", "")
+            "mapUrl": acc.get("mapUrl", ""),
+            "imageUrl": acc.get("imageUrl", "")
         })
 
     return candidates
-
 
 def load_events():
     if not DATA_FILE.exists():
         return []
     return json.loads(DATA_FILE.read_text(encoding="utf-8"))
 
-
 def save_events(events):
     DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
     DATA_FILE.write_text(json.dumps(events, ensure_ascii=False, indent=2), encoding="utf-8")
-
 
 def upsert_candidates(events):
     existing_by_key = {(e.get("title"), e.get("date")): e for e in events}
@@ -100,7 +96,7 @@ def upsert_candidates(events):
         existing = existing_by_key.get(key) or (existing_by_url.get(c.get("url")) if c.get("url") else None)
 
         if existing:
-            # 未承認候補のみ自動更新。承認済みは人手編集を尊重。
+            # 要確認のみ自動更新（承認済みを壊さない）
             if existing.get("status") == "要確認":
                 existing.update({**c, "updatedAt": now_iso})
             continue
@@ -110,7 +106,7 @@ def upsert_candidates(events):
             "status": "要確認",
             "verifiedAt": "",
             "updatedAt": now_iso,
-            **c,
+            **c
         }
         events.append(new_event)
         existing_by_key[key] = new_event
@@ -119,7 +115,6 @@ def upsert_candidates(events):
         next_id += 1
 
     return sorted(events, key=lambda x: x.get("id", 0))
-
 
 if __name__ == "__main__":
     events = load_events()
