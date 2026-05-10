@@ -1,65 +1,43 @@
 {
   "policy": {
-    "official_only": true,
-    "require_profile_keywords": ["公式", "主催", "施設公式"],
-    "hashtag_collection": false
+    "official_only": false
   },
-  "accounts": [
+  "accounts": [],
+  "hashtags": [
     {
-      "displayName": "九州ドッグイベント公式（例）",
-      "handle": "@example_official",
+      "tag": "九州犬イベント",
       "category": "イベント",
-      "profileCheck": "公式",
-      "enabled": true,
-      "largeDogFriendly": false,
-      "seasons": ["春", "夏", "秋", "冬"],
-      "mapUrl": "",
-      "affiliate": {
-        "rakuten": "https://hb.afl.rakuten.co.jp/hgc/EXAMPLE",
-        "amazon": "https://amzn.to/EXAMPLE"
-      }
+      "prefecture": "福岡",
+      "area": "要確認",
+      "enabled": true
     },
     {
-      "displayName": "犬同伴カフェ公式（例）",
-      "handle": "@example_dog_cafe",
+      "tag": "九州ドッグラン",
+      "category": "ドッグラン",
+      "prefecture": "熊本",
+      "area": "要確認",
+      "enabled": true
+    },
+    {
+      "tag": "九州犬カフェ",
       "category": "カフェ",
-      "profileCheck": "施設公式",
-      "enabled": true,
-      "largeDogFriendly": false,
-      "seasons": ["春", "秋"],
-      "mapUrl": "",
-      "affiliate": {
-        "rakuten": "https://hb.afl.rakuten.co.jp/hgc/EXAMPLE2",
-        "amazon": "https://amzn.to/EXAMPLE2"
-      }
+      "prefecture": "大分",
+      "area": "要確認",
+      "enabled": true
     },
     {
-      "displayName": "犬連れキャンプ場公式（例）",
-      "handle": "@example_dog_camp",
-      "category": "キャンプ",
-      "profileCheck": "施設公式",
-      "enabled": true,
-      "largeDogFriendly": true,
-      "seasons": ["春", "夏", "秋"],
-      "mapUrl": "",
-      "affiliate": {
-        "rakuten": "https://hb.afl.rakuten.co.jp/hgc/EXAMPLE3",
-        "amazon": "https://amzn.to/EXAMPLE3"
-      }
+      "tag": "犬イベント福岡",
+      "category": "イベント",
+      "prefecture": "福岡",
+      "area": "要確認",
+      "enabled": true
     },
     {
-      "displayName": "ペット可ホテル公式（例）",
-      "handle": "@example_pet_hotel",
-      "category": "ホテル",
-      "profileCheck": "公式",
-      "enabled": true,
-      "largeDogFriendly": false,
-      "seasons": ["秋", "冬"],
-      "mapUrl": "",
-      "affiliate": {
-        "rakuten": "https://hb.afl.rakuten.co.jp/hgc/EXAMPLE4",
-        "amazon": "https://amzn.to/EXAMPLE4"
-      }
+      "tag": "犬カフェ大分",
+      "category": "カフェ",
+      "prefecture": "大分",
+      "area": "要確認",
+      "enabled": true
     }
   ]
 }
