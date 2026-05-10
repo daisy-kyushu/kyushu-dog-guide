@@ -25,6 +25,7 @@ function cardImage(i) {
 function renderFeatured(items) {
   const featured = document.getElementById('featured');
   if (!featured) return;
+
   const picks = items
     .filter(i => ['山・ハイキング', 'カフェ', 'キャンプ', 'ホテル'].includes(i.category))
     .slice(0, 4);
@@ -45,13 +46,13 @@ function renderFeatured(items) {
 }
 
 function renderApp(items) {
-  const lastUpdatedEl = document.getElementById('lastUpdated');
+  const updated = document.getElementById('lastUpdated');
   const latest = items.map(i => i.updatedAt).filter(Boolean).sort().pop();
-  if (lastUpdatedEl && latest) {
-    lastUpdatedEl.textContent = `最終更新: ${latest.replace('T', ' ').replace('Z', ' UTC')}`;
+  if (updated && latest) {
+    updated.textContent = `最終更新: ${latest.replace('T', ' ').replace('Z', ' UTC')}`;
   }
 
-  // 公開は承認済みだけ
+  // 一般公開は承認済みのみ
   const publicItems = items.filter(i => (i.status || '') === '公式確認済み');
 
   const prefs = ['すべて', ...new Set(publicItems.map(i => i.prefecture))];
@@ -94,34 +95,38 @@ function renderApp(items) {
           <span class="badge">${esc(i.status || '要確認')}</span>
           <span class="badge">${esc(i.category)}</span>
         </div>
+
         <h3>${esc(i.title)}</h3>
         <p class="sub">${esc(i.prefecture)}・${esc(i.area)} / ${esc(i.date)}</p>
         <p>${esc(i.summary)}</p>
+
         <div class="actions">
-          ${safeUrl(i.url) ? `<a class="btn" href="${safeUrl(i.url)}" target="_blank" rel="noreferrer">公式サイトを見る</a>` : '<span class="sub">公式確認中</span>'}
+          ${safeUrl(i.url) ? `<a class="btn btn-main" href="${safeUrl(i.url)}" target="_blank" rel="noreferrer">公式サイトを見る</a>` : '<span class="sub">公式確認中</span>'}
           ${safeUrl(i.mapUrl) ? `<a class="btn btn-map" href="${safeUrl(i.mapUrl)}" target="_blank" rel="noreferrer">ナビで案内</a>` : ''}
-          ${safeUrl(i.rakutenAffiliateUrl) ? `<a class="btn btn-sub" href="${safeUrl(i.rakutenAffiliateUrl)}" target="_blank" rel="sponsored noreferrer">楽天で見る</a>` : ''}
-          ${safeUrl(i.amazonAffiliateUrl) ? `<a class="btn btn-sub" href="${safeUrl(i.amazonAffiliateUrl)}" target="_blank" rel="sponsored noreferrer">Amazonで見る</a>` : ''}
+        </div>
+
+        <div class="actions actions-sub">
+          ${safeUrl(i.rakutenAffiliateUrl) ? `<a class="btn btn-rakuten" href="${safeUrl(i.rakutenAffiliateUrl)}" target="_blank" rel="sponsored noreferrer">楽天で関連商品を見る</a>` : ''}
+          ${safeUrl(i.amazonAffiliateUrl) ? `<a class="btn btn-amazon" href="${safeUrl(i.amazonAffiliateUrl)}" target="_blank" rel="sponsored noreferrer">Amazonで関連商品を見る</a>` : ''}
         </div>
       </article>
     `).join('');
   }
 
   [q, pref, cat, season, largeDog].forEach(el => el && el.addEventListener('input', render));
+  [q, pref, cat, season, largeDog].forEach(el => el && el.addEventListener('change', render));
 
   if (quick) {
     quick.innerHTML = ['山・ハイキング', 'カフェ', 'キャンプ', 'ホテル']
       .map(c => `<button class="chip-btn" data-cat="${c}">${c}</button>`)
       .join('');
-    quick.querySelectorAll('button').forEach(btn =>
+    quick.querySelectorAll('button').forEach(btn => {
       btn.addEventListener('click', () => {
         cat.value = btn.dataset.cat;
         render();
-      })
-    );
+      });
+    });
   }
-
-  [q, pref, cat, season, largeDog].forEach(el => el && el.addEventListener('change', render));
 
   render();
   renderFeatured(publicItems);
