@@ -2,7 +2,7 @@ name: Collect event candidates
 
 on:
   schedule:
-    - cron: '0 21 * * *' # 毎日 UTC 21:00（JST 06:00）
+    - cron: "0 21 * * *" # 毎日 UTC 21:00（JST 06:00）
   workflow_dispatch:
 
 permissions:
@@ -13,11 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Ensure data file exists
         run: |
@@ -51,13 +53,24 @@ jobs:
       - name: Count pending items
         id: pending
         run: |
-          PENDING_COUNT=$(python -c "import json, pathlib; p=pathlib.Path('data/events.json'); 
-if not p.exists(): print(0); raise SystemExit(0)
+          PENDING_COUNT=$(python - <<'PY'
+import json
+from pathlib import Path
+
+p = Path("data/events.json")
+if not p.exists():
+    print(0)
+    raise SystemExit(0)
+
 try:
-    events=json.loads(p.read_text(encoding='utf-8'))
+    events = json.loads(p.read_text(encoding="utf-8"))
 except Exception:
-    print(0); raise SystemExit(0)
-print(sum(1 for e in events if e.get('status')=='要確認'))")
+    print(0)
+    raise SystemExit(0)
+
+print(sum(1 for e in events if e.get("status") == "要確認"))
+PY
+)
           echo "count=${PENDING_COUNT}" >> "$GITHUB_OUTPUT"
           echo "pending_count=${PENDING_COUNT}"
 
