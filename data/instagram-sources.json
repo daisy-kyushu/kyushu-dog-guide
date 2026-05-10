@@ -1,8 +1,4 @@
 {
-  "policy": {
-    "official_only": false
-  },
-  "accounts": [],
   "hashtags": [
     {
       "tag": "九州犬イベント",
@@ -20,20 +16,6 @@
     },
     {
       "tag": "九州犬カフェ",
-      "category": "カフェ",
-      "prefecture": "大分",
-      "area": "要確認",
-      "enabled": true
-    },
-    {
-      "tag": "犬イベント福岡",
-      "category": "イベント",
-      "prefecture": "福岡",
-      "area": "要確認",
-      "enabled": true
-    },
-    {
-      "tag": "犬カフェ大分",
       "category": "カフェ",
       "prefecture": "大分",
       "area": "要確認",
