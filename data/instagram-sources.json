@@ -1,0 +1,16 @@
+{
+  "policy": {
+    "official_only": true,
+    "require_profile_keywords": ["公式", "主催", "施設公式"],
+    "hashtag_collection": false
+  },
+  "accounts": [
+    {
+      "displayName": "公式アカウント例",
+      "handle": "@example_official",
+      "category": "イベント",
+      "profileCheck": "公式",
+      "enabled": true
+    }
+  ]
+}
