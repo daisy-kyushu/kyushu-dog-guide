@@ -34,9 +34,9 @@ jobs:
         run: |
           git add data/events.json
           if git diff --cached --quiet; then
-            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
-            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Commit updates if changed
@@ -51,25 +51,14 @@ jobs:
       - name: Count pending items
         id: pending
         run: |
-          PENDING_COUNT=$(python - <<'PY'
-import json
-from pathlib import Path
-
-p = Path("data/events.json")
-if not p.exists():
-    print(0)
-    raise SystemExit
-
+          PENDING_COUNT=$(python -c "import json, pathlib; p=pathlib.Path('data/events.json'); 
+if not p.exists(): print(0); raise SystemExit(0)
 try:
-    events = json.loads(p.read_text(encoding="utf-8"))
+    events=json.loads(p.read_text(encoding='utf-8'))
 except Exception:
-    print(0)
-    raise SystemExit
-
-print(sum(1 for e in events if e.get("status") == "要確認"))
-PY
-)
-          echo "count=${PENDING_COUNT}" >> $GITHUB_OUTPUT
+    print(0); raise SystemExit(0)
+print(sum(1 for e in events if e.get('status')=='要確認'))")
+          echo "count=${PENDING_COUNT}" >> "$GITHUB_OUTPUT"
           echo "pending_count=${PENDING_COUNT}"
 
       - name: Notify LINE when pending exists (broadcast)
