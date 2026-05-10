@@ -13,20 +13,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Ensure data file exists
+      - name: Ensure data files
         run: |
           mkdir -p data
-          if [ ! -f data/events.json ]; then
-            echo "[]" > data/events.json
-          fi
+          [ -f data/events.json ] || echo "[]" > data/events.json
+          [ -f data/instagram-sources.json ] || echo '{"policy":{},"accounts":[],"hashtags":[]}' > data/instagram-sources.json
 
       - name: Collect candidate events
         run: python scripts/fetch_events.py
@@ -56,23 +53,17 @@ jobs:
           PENDING_COUNT=$(python - <<'PY'
 import json
 from pathlib import Path
-
 p = Path("data/events.json")
 if not p.exists():
-    print(0)
-    raise SystemExit(0)
-
+    print(0); raise SystemExit(0)
 try:
     events = json.loads(p.read_text(encoding="utf-8"))
 except Exception:
-    print(0)
-    raise SystemExit(0)
-
+    print(0); raise SystemExit(0)
 print(sum(1 for e in events if e.get("status") == "要確認"))
 PY
 )
           echo "count=${PENDING_COUNT}" >> "$GITHUB_OUTPUT"
-          echo "pending_count=${PENDING_COUNT}"
 
       - name: Notify LINE when pending exists (broadcast)
         if: steps.pending.outputs.count != '0'
@@ -81,24 +72,14 @@ PY
           PENDING_COUNT: ${{ steps.pending.outputs.count }}
         run: |
           if [ -z "${LINE_TOKEN}" ]; then
-            echo "LINE_CHANNEL_ACCESS_TOKEN is not set. Skip notification."
+            echo "LINE token is missing. Skip."
             exit 0
           fi
-
           MSG="要確認の候補が ${PENDING_COUNT} 件あります。スマホで確認してください。"
-
           PAYLOAD=$(cat <<EOF
-{
-  "messages": [
-    {
-      "type": "text",
-      "text": "${MSG}"
-    }
-  ]
-}
+{"messages":[{"type":"text","text":"${MSG}"}]}
 EOF
 )
-
           curl -sS -X POST "https://api.line.me/v2/bot/message/broadcast" \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${LINE_TOKEN}" \
