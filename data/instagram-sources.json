@@ -6,11 +6,60 @@
   },
   "accounts": [
     {
-      "displayName": "公式アカウント例",
+      "displayName": "九州ドッグイベント公式（例）",
       "handle": "@example_official",
       "category": "イベント",
       "profileCheck": "公式",
-      "enabled": true
+      "enabled": true,
+      "largeDogFriendly": false,
+      "seasons": ["春", "夏", "秋", "冬"],
+      "mapUrl": "",
+      "affiliate": {
+        "rakuten": "https://hb.afl.rakuten.co.jp/hgc/EXAMPLE",
+        "amazon": "https://amzn.to/EXAMPLE"
+      }
+    },
+    {
+      "displayName": "犬同伴カフェ公式（例）",
+      "handle": "@example_dog_cafe",
+      "category": "カフェ",
+      "profileCheck": "施設公式",
+      "enabled": true,
+      "largeDogFriendly": false,
+      "seasons": ["春", "秋"],
+      "mapUrl": "",
+      "affiliate": {
+        "rakuten": "https://hb.afl.rakuten.co.jp/hgc/EXAMPLE2",
+        "amazon": "https://amzn.to/EXAMPLE2"
+      }
+    },
+    {
+      "displayName": "犬連れキャンプ場公式（例）",
+      "handle": "@example_dog_camp",
+      "category": "キャンプ",
+      "profileCheck": "施設公式",
+      "enabled": true,
+      "largeDogFriendly": true,
+      "seasons": ["春", "夏", "秋"],
+      "mapUrl": "",
+      "affiliate": {
+        "rakuten": "https://hb.afl.rakuten.co.jp/hgc/EXAMPLE3",
+        "amazon": "https://amzn.to/EXAMPLE3"
+      }
+    },
+    {
+      "displayName": "ペット可ホテル公式（例）",
+      "handle": "@example_pet_hotel",
+      "category": "ホテル",
+      "profileCheck": "公式",
+      "enabled": true,
+      "largeDogFriendly": false,
+      "seasons": ["秋", "冬"],
+      "mapUrl": "",
+      "affiliate": {
+        "rakuten": "https://hb.afl.rakuten.co.jp/hgc/EXAMPLE4",
+        "amazon": "https://amzn.to/EXAMPLE4"
+      }
     }
   ]
 }
