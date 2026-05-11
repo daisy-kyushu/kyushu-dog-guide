@@ -2,7 +2,7 @@ name: Collect event candidates
 
 on:
   schedule:
-    - cron: "0 21 * * *" # 毎日 UTC 21:00（JST 06:00）
+    - cron: "0 21 * * *"
   workflow_dispatch:
 
 permissions:
@@ -13,13 +13,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Ensure data files exist
+      - name: Ensure data files
         run: |
           mkdir -p data
           [ -f data/events.json ] || echo "[]" > data/events.json
@@ -46,15 +48,16 @@ jobs:
           git commit -m "chore: update event candidates"
           git pull --rebase origin main
           git push origin HEAD:main
-　　　- name: LINE test ping
-  env:
-    LINE_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
-  run: |
-    if [ -z "${LINE_TOKEN}" ]; then
-      echo "LINE token missing"
-      exit 1
-    fi
-    curl -sS -X POST "https://api.line.me/v2/bot/message/broadcast" \
-      -H "Content-Type: application/json" \
-      -H "Authorization: Bearer ${LINE_TOKEN}" \
-      -d '{"messages":[{"type":"text","text":"テスト通知: Collect workflowから送信"}]}'
+
+      - name: LINE test ping
+        env:
+          LINE_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+        run: |
+          if [ -z "${LINE_TOKEN}" ]; then
+            echo "LINE token missing"
+            exit 1
+          fi
+          curl -sS -X POST "https://api.line.me/v2/bot/message/broadcast" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${LINE_TOKEN}" \
+            -d '{"messages":[{"type":"text","text":"テスト通知: Collect workflowから送信"}]}'
