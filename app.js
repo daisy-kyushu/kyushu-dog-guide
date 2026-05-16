@@ -11,6 +11,19 @@ const esc = (s='') => String(s).replace(/[&<>'"]/g, m => ({
 const safeUrl = (u='') => /^https:\/\//.test(String(u)) ? String(u) : '';
 const safeImg = (u='') => /^https:\/\//.test(String(u)) ? String(u) : '';
 
+
+function isFutureOrOngoing(item){
+  const d = String(item.date || '');
+  if (!d) return false;
+  if (/(通年|要確認|春|夏|秋|冬|おすすめ)/.test(d)) return true;
+  const m = d.match(/(\d{4})\/(\d{1,2})\/(\d{1,2})/);
+  if (!m) return true;
+  const dt = new Date(Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3]) + 1));
+  const now = new Date();
+  const today = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+  return dt >= today;
+}
+
 function cardImage(i){
   const src = safeImg(i.imageUrl || '');
   return src ? `<img class="card-img" src="${src}" alt="${esc(i.title)}" loading="lazy">` : '';
@@ -22,7 +35,7 @@ function renderApp(items){
   if (updated && latest) updated.textContent = `最終更新: ${latest.replace('T',' ').replace('Z',' UTC')}`;
 
   // 公開は承認済みのみ
-  const publicItems = items.filter(i => (i.status || '') === '公式確認済み');
+  const publicItems = items.filter(i => (i.status || '') === '公式確認済み' && isFutureOrOngoing(i));
 
   const q = document.getElementById('q');
   const pref = document.getElementById('pref');

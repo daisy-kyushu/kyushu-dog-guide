@@ -1,0 +1,31 @@
+{
+  "version": "2026-05-16",
+  "policy": {
+    "officialOnly": true,
+    "allowPersonalPosts": false,
+    "unknownFields": "要確認"
+  },
+  "sources": [
+    {
+      "id": "pet-haku-official",
+      "name": "Pet博 公式サイト",
+      "type": "official-web",
+      "url": "https://pethaku.com/",
+      "status": "有効"
+    },
+    {
+      "id": "my-dog-official",
+      "name": "MY DOG 公式サイト",
+      "type": "official-web",
+      "url": "https://my-dog.me/",
+      "status": "有効"
+    },
+    {
+      "id": "example-dog-cafe",
+      "name": "犬同伴可カフェ公式Instagram（確認用）",
+      "type": "official-sns",
+      "url": "https://www.instagram.com/example_dog_cafe/",
+      "status": "要確認"
+    }
+  ]
+}
