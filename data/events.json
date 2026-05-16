@@ -81,5 +81,83 @@
     "mapUrl": "https://maps.google.com/?q=%E3%81%8F%E3%81%98%E3%82%85%E3%81%86%E8%8A%B1%E5%85%AC%E5%9C%92",
     "verifiedAt": "",
     "updatedAt": "2026-05-16T00:00:00Z"
+  },
+  {
+    "id": 4,
+    "verifiedAt": "",
+    "updatedAt": "2026-05-16T23:36:45Z",
+    "title": "ハッシュタグ候補: #九州犬イベント",
+    "category": "イベント",
+    "prefecture": "福岡",
+    "area": "要確認",
+    "date": "要確認",
+    "status": "要確認",
+    "summary": "Instagramハッシュタグ #九州犬イベント 由来の候補。公開前に確認してください。",
+    "url": "https://www.instagram.com/explore/tags/九州犬イベント/",
+    "sourceType": "candidate",
+    "source": "instagram-hashtag",
+    "rakutenAffiliateUrl": "",
+    "amazonAffiliateUrl": "",
+    "imageUrl": "",
+    "seasons": [
+      "春",
+      "夏",
+      "秋",
+      "冬"
+    ],
+    "largeDogFriendly": false,
+    "mapUrl": ""
+  },
+  {
+    "id": 5,
+    "verifiedAt": "",
+    "updatedAt": "2026-05-16T23:36:45Z",
+    "title": "ハッシュタグ候補: #九州ドッグラン",
+    "category": "ドッグラン",
+    "prefecture": "熊本",
+    "area": "要確認",
+    "date": "要確認",
+    "status": "要確認",
+    "summary": "Instagramハッシュタグ #九州ドッグラン 由来の候補。公開前に確認してください。",
+    "url": "https://www.instagram.com/explore/tags/九州ドッグラン/",
+    "sourceType": "candidate",
+    "source": "instagram-hashtag",
+    "rakutenAffiliateUrl": "",
+    "amazonAffiliateUrl": "",
+    "imageUrl": "",
+    "seasons": [
+      "春",
+      "夏",
+      "秋",
+      "冬"
+    ],
+    "largeDogFriendly": false,
+    "mapUrl": ""
+  },
+  {
+    "id": 6,
+    "verifiedAt": "",
+    "updatedAt": "2026-05-16T23:36:45Z",
+    "title": "ハッシュタグ候補: #九州犬カフェ",
+    "category": "カフェ",
+    "prefecture": "大分",
+    "area": "要確認",
+    "date": "要確認",
+    "status": "要確認",
+    "summary": "Instagramハッシュタグ #九州犬カフェ 由来の候補。公開前に確認してください。",
+    "url": "https://www.instagram.com/explore/tags/九州犬カフェ/",
+    "sourceType": "candidate",
+    "source": "instagram-hashtag",
+    "rakutenAffiliateUrl": "",
+    "amazonAffiliateUrl": "",
+    "imageUrl": "",
+    "seasons": [
+      "春",
+      "夏",
+      "秋",
+      "冬"
+    ],
+    "largeDogFriendly": false,
+    "mapUrl": ""
   }
 ]
