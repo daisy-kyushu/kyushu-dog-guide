@@ -1,0 +1,53 @@
+name: Instagram First Auto Publish
+
+on:
+  schedule:
+    - cron: "0 20 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  collect-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Ensure required files
+        run: |
+          mkdir -p data
+          [ -f content-sources.json ] || echo '{"version":"unknown","sources":[]}' > content-sources.json
+          [ -f instagram-search-plan.json ] || echo '{"version":"unknown","queries":[]}' > instagram-search-plan.json
+          [ -f data/events.json ] || echo '[]' > data/events.json
+
+      - name: Auto collect content (data/*.json)
+        run: node auto-collect-content.js
+
+      - name: Validate JSON
+        run: |
+          jq empty content-sources.json
+          jq empty instagram-search-plan.json
+          jq empty data/events.json
+          [ -f data/spots.json ] && jq empty data/spots.json || true
+          [ -f data/outdoor.json ] && jq empty data/outdoor.json || true
+          [ -f data/hotels.json ] && jq empty data/hotels.json || true
+          [ -f data/products.json ] && jq empty data/products.json || true
+
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content-sources.json instagram-search-plan.json data/*.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "chore: instagram-first auto publish update"
+          git push

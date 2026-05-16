@@ -1,0 +1,21 @@
+{
+  "version": "2026-05-16",
+  "notes": "個人投稿や口コミのみの情報は掲載しない。公式URLまたは公式SNSが確認できる候補のみ収集。",
+  "queries": [
+    {
+      "topic": "犬イベント",
+      "hashtags": ["九州犬イベント", "福岡犬イベント", "熊本犬イベント"],
+      "requiredSourceType": "official"
+    },
+    {
+      "topic": "ドッグラン",
+      "hashtags": ["九州ドッグラン", "犬と遊べる公園九州"],
+      "requiredSourceType": "official"
+    },
+    {
+      "topic": "犬と泊まれる宿",
+      "hashtags": ["九州ペット可ホテル", "犬と泊まれる九州"],
+      "requiredSourceType": "official"
+    }
+  ]
+}
