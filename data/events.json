@@ -106,7 +106,10 @@
       "冬"
     ],
     "largeDogFriendly": false,
-    "mapUrl": ""
+    "mapUrl": "",
+    "dogPolicy": "要確認",
+    "indoorOk": "要確認",
+    "rainyDayOk": "要確認"
   },
   {
     "id": 5,
@@ -132,7 +135,10 @@
       "冬"
     ],
     "largeDogFriendly": false,
-    "mapUrl": ""
+    "mapUrl": "",
+    "dogPolicy": "要確認",
+    "indoorOk": "要確認",
+    "rainyDayOk": "要確認"
   },
   {
     "id": 6,
@@ -158,6 +164,9 @@
       "冬"
     ],
     "largeDogFriendly": false,
-    "mapUrl": ""
+    "mapUrl": "",
+    "dogPolicy": "要確認",
+    "indoorOk": "要確認",
+    "rainyDayOk": "要確認"
   }
 ]
