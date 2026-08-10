@@ -1,31 +1,5 @@
 [
   {
-    "id": 1,
-    "title": "Pet博2026 福岡",
-    "category": "イベント",
-    "prefecture": "福岡",
-    "area": "福岡市",
-    "date": "2026/8/8-8/9",
-    "status": "公式確認済み",
-    "summary": "屋内開催の大型ペットイベント。犬連れ来場可。",
-    "url": "https://pethaku.com/fukuoka/",
-    "sourceType": "official",
-    "source": "official-web",
-    "rakutenAffiliateUrl": "https://search.rakuten.co.jp/search/mall/%E7%8A%AC%20%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%20%E6%8C%81%E3%81%A1%E7%89%A9/",
-    "amazonAffiliateUrl": "https://www.amazon.co.jp/s?k=%E7%8A%AC+%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88+%E6%8C%81%E3%81%A1%E7%89%A9",
-    "imageUrl": "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=80",
-    "seasons": [
-      "夏"
-    ],
-    "largeDogFriendly": "要確認",
-    "dogPolicy": "要確認",
-    "indoorOk": "要確認",
-    "rainyDayOk": "要確認",
-    "mapUrl": "https://maps.google.com/?q=PayPay%E3%83%89%E3%83%BC%E3%83%A0%E7%A6%8F%E5%B2%A1",
-    "verifiedAt": "2026-05-16",
-    "updatedAt": "2026-05-16T00:00:00Z"
-  },
-  {
     "id": 2,
     "title": "犬と泊まれる宿（楽天トラベル検索導線）",
     "category": "ホテル",
